@@ -19,14 +19,30 @@ dependencies {
     implementation 'com.launchdarkly:okhttp-eventsource:1.8.0'
     implementation 'org.apache.kafka:kafka-clients:3.7.0'
 }
-/*
+
 configurations.all {
     exclude group: 'org.slf4j', module: 'slf4j-api:1.7.36'
 }
+/*
 tasks.named('bootBuildImage') {
     builder = 'paketobuildpacks/builder-jammy-base:latest'
 }
  */
+
 test {
     useJUnitPlatform()
+}
+jar {
+    duplicatesStrategy(DuplicatesStrategy.EXCLUDE)
+    exclude 'META-INF/*.RSA', 'META-INF/*.SF','META-INF/*.DSA'
+}
+
+jar {
+    manifest {
+        attributes "Main-Class": "com.scaleiq.ingestor.sqingestor"
+    }
+
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
 }
