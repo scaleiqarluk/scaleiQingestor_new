@@ -3,9 +3,9 @@ plugins {
 //    id 'org.springframework.boot' version '3.1.9'
 //    id 'io.spring.dependency-management' version '1.1.4'
 }
-java {
-    sourceCompatibility = '17'
-}
+//java {
+//    sourceCompatibility = '17'
+//}
 group 'org.scaleiq'
 version '1.0-SNAPSHOT'
 
