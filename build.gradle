@@ -18,10 +18,12 @@ dependencies {
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
     implementation 'com.launchdarkly:okhttp-eventsource:1.8.0'
     implementation 'org.apache.kafka:kafka-clients:3.7.0'
+    implementation 'org.slf4j:slf4j-api:1.7.32'
+    implementation 'ch.qos.logback:logback-classic:1.2.6'
 }
 
 configurations.all {
-    exclude group: 'org.slf4j', module: 'slf4j-api:1.7.36'
+//    exclude group: 'org.slf4j', module: 'slf4j-api:1.7.36'
 }
 /*
 tasks.named('bootBuildImage') {
